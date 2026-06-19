@@ -17,14 +17,14 @@ TypeofContact = st.selectbox("Type of Contact", ["Self Enquiry", "Company Invite
 CityTier = st.selectbox("City Tier", [1, 2, 3])
 Occupation = st.selectbox("Occupation", ["Salaried", "Small Business", "Large Business", "Free Lancer"])
 Gender = st.selectbox("Gender", ["Male", "Female"])
-NumberOfPersonVisiting = st.number_input("Number Of Persons Visiting", min_value=1, max_value=20, value=2)
-NumberOfFollowups = st.number_input("Number Of Followups", min_value=0, max_value=10, value=2)
+NumberOfPersonVisiting = st.number_input("Number Of Persons Visiting", min_value=1, max_value=20, value=1)
+NumberOfFollowups = st.number_input("Number Of Followups", min_value=0, max_value=10, value=0)
 ProductPitched = st.selectbox("Product Pitched", ["Basic", "Standard", "Deluxe", "Super Deluxe", "King"])
 PreferredPropertyStar = st.selectbox("Preferred Property Star", [1, 2, 3, 4, 5])
 MaritalStatus = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
-NumberOfTrips = st.number_input("Number Of Trips Per Year", min_value=0, max_value=20, value=2)
+NumberOfTrips = st.number_input("Number Of Trips Per Year", min_value=0, max_value=20, value=0)
 Passport = st.selectbox("Passport Available", [0, 1])
-PitchSatisfactionScore = st.slider("Pitch Satisfaction Score", 1, 5, 3)
+PitchSatisfactionScore = st.selectbox("Pitch Satisfaction Score", [1, 2, 3, 4, 5])
 OwnCar = st.selectbox("Own Car", [0, 1])
 NumberOfChildrenVisiting = st.number_input("Number Of Children Visiting", min_value=0, max_value=10, value=0)
 Designation = st.selectbox("Designation", ["Manager", "Senior Manager", "AVP", "VP", "Executive"])
@@ -60,11 +60,3 @@ if st.button("Predict"):
     else:
         st.error("Customer is unlikely to purchase the Tourism Package.")
 
-
-
-
-if st.button("Predict Failure"):
-    prediction = model.predict(input_data)[0]
-    result = "Machine Failure" if prediction == 1 else "No Failure"
-    st.subheader("Prediction Result:")
-    st.success(f"The model predicts: **{result}**")
